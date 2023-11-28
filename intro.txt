@@ -19,5 +19,7 @@ Languages you will get to Know:-
 9.hardhat,web3.js,eth.js and more...
 10.using AI [Artificial Intelegence].
 
+Note:- We would be building various projects throughout this course.
+
 
 I have few years of experiance in Web-development.
