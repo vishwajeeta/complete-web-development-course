@@ -1,0 +1,40 @@
+<!-- using float and clear property -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css float and clear</title>
+    <style>
+        .cards{
+            /* display: flow-root; to fit within element in container */
+            display: flow-root;
+            border: 1px solid rebeccapurple;
+        }
+        .cards img{
+            width: 250px;
+            float: right;
+        }
+        .card{
+            border: 1px solid rebeccapurple;
+        }
+        /* nth-child(4) to select the child of class element */
+        .card:nth-child(4){
+            background-color: orange;
+            /* it wouldn't allow any elements to float in the right */
+            clear: right;
+            color: rgb(63, 55, 39);
+        }
+    </style>
+  </head>
+  <body>
+    <!-- .cards>.card*3 -->
+    <!-- it will create main div and 3 sub-div with assigned class -->
+    <div class="cards">
+        <img src="./assets/happy new year.jpg" alt="image">
+      <div class="card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, impedit exercitationem ipsa est, explicabo nisi itaque optio eligendi pariatur aut vitae omnis quo saepe, reprehenderit fuga aspernatur modi ullam excepturi.</div>
+      <div class="card">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore soluta laboriosam unde eum voluptas explicabo laborum reprehenderit perferendis impedit quos est illum beatae blanditiis tempore, repellendus fugit veniam. Dolorem in atque labore unde rem? Quas, libero. Deserunt suscipit ullam quisquam.</div>
+      <div class="card">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, cum non voluptatem, magni dignissimos asperiores illo itaque reiciendis nobis doloremque accusantium libero aliquam at fugiat animi consequuntur quis tenetur quaerat minima cumque. Deleniti deserunt culpa placeat laudantium esse molestiae accusamus hic nobis alias nostrum asperiores praesentium reprehenderit earum repudiandae eveniet a ipsam, eos illo explicabo fuga voluptate iusto nihil blanditiis eligendi! Cum est nulla debitis quae harum vel ipsum tenetur. Magnam cumque temporibus, dolorum commodi autem itaque laudantium aut! Dicta beatae rem eum voluptatibus maxime suscipit numquam commodi quia, illum sint libero distinctio totam ab, aperiam alias, aliquid inventore cumque vitae autem voluptates facilis! Qui voluptate corrupti aliquam quos tempore voluptatibus, harum rem nostrum debitis placeat. Officiis non eos quibusdam. Qui nulla ratione possimus nobis ad consectetur deleniti nisi aliquam recusandae repudiandae corrupti impedit fugiat reprehenderit esse inventore, amet mollitia excepturi odio et animi. Impedit officia blanditiis dolor, a, nam id expedita eligendi, laborum mollitia voluptatibus porro earum nemo quia ut error corporis beatae tenetur. Eligendi rerum nulla veritatis sed quo vel dolorem consectetur iure, odit minus fuga facere autem et velit cumque tempora, vitae delectus laudantium est perspiciatis ex recusandae voluptatem sit? Sint vero tenetur voluptates adipisci nisi, consequatur provident labore velit quia, magni illo qui! Atque, corporis ex! Animi, voluptatibus repellat quas, tempora architecto deserunt facere sed aperiam aspernatur obcaecati excepturi non consectetur asperiores eaque tempore saepe. Voluptatem expedita voluptatum obcaecati quas recusandae, vero officia voluptatibus dolorum beatae perferendis deleniti quasi rerum modi iusto illo rem sed similique iste alias architecto odit laborum facere. Nobis explicabo possimus, aspernatur nulla amet rerum nihil. Tenetur, ipsum! Est nobis repudiandae in dolore quod quam, officia debitis eum ut, rem facilis vero dolorum labore saepe ullam nam illum velit quasi inventore deserunt. Numquam ut deleniti necessitatibus quisquam ipsa nemo sunt repellendus nesciunt.</div>
+    </div>
+  </body>
+</html>
