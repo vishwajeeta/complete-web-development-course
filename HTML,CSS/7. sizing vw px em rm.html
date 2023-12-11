@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            background-color: black;
+        }
     #data1{
         /* view port width and height declaration */
         width: 80vw;
+        margin: auto;
         height: 70vh;
         background-color: orange;
     }
@@ -17,12 +21,20 @@
         width: 80%;
         height: 70%;
         background-color: orange;
+        margin: auto;
     }
-    #data3{
+    #data3 ,#data4{
         /* pixel width and height declaration */
         width: 800px;
-        height: 700px;
+        height: 600px;
         background-color: orange;
+        /* em will act as font-size*em-value */
+        font-size: 3em;
+        margin: auto;/* if we will add margin auto then it will come to center*/
+    }
+    #data4{
+        /* it will work same as em but duble from root size where as em double from assigned height */
+        font-size: 2rem;
     }
     </style>
 </head>
@@ -30,5 +42,7 @@
     <div id="data1">view port</div><br>
     <div id="data2">percentage height and width.</div><br>
     <div id="data3">pixel width and height.</div>
+    <div id="data4">pixel width and height.</div>
 </body>
 </html>
+<!-- note:- if it is a block element then margin:auto; will make it center -->
