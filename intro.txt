@@ -6,6 +6,7 @@ Benefits for your time investment:-
 1.full-stack web-development.
 2.get breaf knowledge on both front-end and back-end.
 3.working with different API [creating,manuplating,accessing ,more...]
+4.mainly browser's takes 3 types of files [Html,Css and Javascript]
 
 Languages you will get to Know:-
 1.HTML,CSS
