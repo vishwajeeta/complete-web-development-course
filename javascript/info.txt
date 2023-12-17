@@ -1,0 +1,3 @@
+DOM =document object model 
+is a important component of the browser it desides how the content will be loaded,viewed and structured in the browser .
+javascript is used to structure the response of the user and manipluate the DOM of the brower .
