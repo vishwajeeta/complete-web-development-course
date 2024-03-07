@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>image hover effect</title>
+  </head>
+  <style>
+    img {
+      cursor: pointer;
+      height: 20wh;
+      width: 20vw;
+      filter: grayscale(100);
+    }
+    img:hover {
+      filter: grayscale(0);
+    }
+    button{
+        cursor: pointer;
+    }
+    #condis{
+        display: none;
+        background-color: red;
+        
+    }
+    #conenb{
+        background-color: green;
+    }
+    *{
+        text-align: center ;
+    }
+  </style>
+  <body>
+      <button onclick="increase()" id="conenb">Increase</button>
+      <button onclick="decrement()" id="condis">Reduce</button>
+    <div id="container">
+      <!-- <img src="happy.jpg" alt="" /> -->
+    </div>
+  </body>
+  <script>
+    
+    let id=0;
+ increase =()=>{
+    omg='<img src="happy.jpg" alt="" id="a'+ id +'" />'
+ document.getElementById('container').innerHTML +=omg
+ id++
+ if (id>=-1 )
+{document.getElementById("condis").style="display: inline;"}
+
+ }
+ omg=true
+ decrement =()=>{
+    
+        console.log("Done!")
+        if(omg)
+        {
+            id=id-1
+            omg=false
+        }
+    c='a'+id
+    
+    String(c)
+    console.log(c)
+    try{
+document.getElementById(c).style="display: none;"
+    }catch{}
+id=id-1
+if (id<=-1 )
+{document.getElementById("condis").style="display: none;"}
+
+ }
+  </script>
+</html>
