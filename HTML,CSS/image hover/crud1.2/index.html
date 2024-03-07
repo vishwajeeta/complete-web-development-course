@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>image hover effect</title>
+  </head>
+  <style>
+    img {
+      cursor: pointer;
+      height: 20wh;
+      width: 20vw;
+      filter: grayscale(100);
+    }
+    img:hover {
+      filter: grayscale(0);
+    }
+    button {
+      cursor: pointer;
+    }
+    #condis {
+      display: none;
+      background-color: red;
+    }
+    #conenb {
+      background-color: green;
+    }
+    * {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <button onclick="increase()" id="conenb">Increase</button>
+    <button onclick="decrement()" id="condis">Reduce</button>
+    <div id="container">
+      <!-- <img src="happy.jpg" alt="" /> -->
+    </div>
+  </body>
+  <script>
+    let a = [];
+    let id = 0;
+    increase = () => {
+      omg = '<img src="happy.jpg" alt="" id="a' + id + '" />';
+      document.getElementById("container").innerHTML += omg;
+      c = "a" + id;
+
+      String(c);
+      a.push(c);
+      id++;
+      if (a[0] != null) {
+        document.getElementById("condis").style = "display: inline;";
+      }
+      console.log(a);
+    };
+
+    decrement = () => {
+      console.log("Done!");
+
+      c = a[a.length - 1];
+      String(c);
+      console.log(c);
+      try {
+        document.getElementById(c).style = "display: none;";
+      } catch {}
+      
+      a.pop();
+      if (a[0] == null) {
+        document.getElementById("condis").style = "display: none;";
+      }
+      console.log(a);
+    };
+  </script>
+</html>
