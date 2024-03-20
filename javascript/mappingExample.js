@@ -1,0 +1,1 @@
+['vishwa','hii','golu','ajeet'].map((items)=>{console.log(items)})
