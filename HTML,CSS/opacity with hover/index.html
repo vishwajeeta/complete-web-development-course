@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opacity</title>
+    <style>
+        div{
+            cursor: pointer;
+            font-size: xx-large;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            text-align: center;
+            border: 1px solid black;
+            width:max-content;
+            align-items: center;
+            border-radius: 15px;
+        }
+        
+        span{
+            color:red;
+            margin: 5px;
+            text-align: center;
+        }
+        
+        
+        div:hover :not(:hover){
+            opacity:0.3;
+        }
+        span:hover{
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+        <span>hello</span>
+        <span>hii</span>
+        <span>buyy</span>
+    </div>
+    
+</body>
+</html>
