@@ -14,7 +14,7 @@
     <script>
         let stream
          openCamera=async()=>{
-            const stream=await navigator.mediaDevices.getUserMedia({video:true});
+            stream=await navigator.mediaDevices.getUserMedia({video:true});
             video.srcObject=stream;
             console.log(stream)
         }
