@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing background color</title>
+</head>
+<body>
+    <h1>Let's Change the Colours</h1>
+    <input type="text" onchange="changeColor('background',this.value)">
+    <input type="text" onchange="changeColor('color',this.value)">
+</body>
+<script>
+    changeColor =(character,data)=>{
+        console.log(character)
+        console.log(data)
+        if(character == 'background')
+        document.body.style.background=data
+    else
+    document.body.style.color=data
+
+
+    }
+</script>
+</html>
