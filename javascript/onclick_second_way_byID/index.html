@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="this is a sample page for testing whether we clicked or not?">
+    <title>ClickMe</title>
+</head>
+<body>
+    <button id="clickMe">clicked</button>
+</body>
+<script>
+    clicked=document.getElementById("clickMe");
+    clicked.onclick=check
+    function check(){
+        cheaking=confirm("have you clicked?")
+        if(cheaking==false)
+         alert("you had clicked");
+        else
+        alert("thank You!")
+
+    }
+</script>
+</html>
