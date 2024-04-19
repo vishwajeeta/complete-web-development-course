@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundry part-2</title>
+    
+<style>
+    .video-container {
+      position: relative;
+      width: 100%;
+    }
+  
+    .video-controls {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      border-radius: 10px;
+    }
+  
+    .skip-button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+  
+    .skip-button:hover {
+      background-color: #45a049; /* Darker green */
+    }
+  </style>
+  </head>
+  <body>
+  <div class="video-container">
+    <video id="myVideo" controls autoplay loop preload="auto" width="100%">
+      <source src="../2_Learn Solidity, Blockchain Development, & Smart Contracts _ Powered By AI - Full Course (7 - 11).mp4" type="video/mp4">
+      <!-- Add additional source tags for different video formats if needed -->
+      Your browser does not support the video tag.
+    </video>
+  
+    <div class="video-controls">
+      <button class="skip-button" onclick="skipBackward()">-10s</button>
+      <button class="skip-button" onclick="skipForward()">+10s</button>
+    </div>
+  </div>
+  
+  <script>
+    const video = document.getElementById('myVideo');
+  
+    function skipForward() {
+      video.currentTime += 10; // Add 10 seconds to the current time
+    }
+  
+    function skipBackward() {
+      video.currentTime -= 10; // Subtract 10 seconds from the current time
+    }
+  </script>
+  
+    
+</body>
+</html>
