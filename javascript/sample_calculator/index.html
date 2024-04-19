@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body style="margin: 3rem;">
+    <div style="display: flex;"><h1 style="margin-right: 15px;"> =</h1><h1 id="result"> 0</h1></div>
+    <input type="number" id="num1">+
+    <input type="number" id="num2">
+</body>
+<script>
+    num1=document.getElementById("num1")
+    num2=document.getElementById("num2")
+
+    num1.onchange=result
+    num2.onchange=result
+
+    function result(){        
+        number_result=parseInt(num1.value)+parseInt(num2.value)
+
+        if (number_result)
+        document.getElementById("result").innerText=number_result
+    }
+</script>
+</html>
