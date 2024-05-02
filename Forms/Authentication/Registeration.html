@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 20rem;
+            padding: 10px;
+            background-color: aliceblue;
+            background-size: contain;
+            margin: auto;
+            border-radius: 0.5rem;
+        }
+        input{
+            padding: 5px;
+        }
+        button{
+            cursor: pointer;
+            width: 60%;
+            margin: auto;
+            border: 2px solid blueviolet;
+            font-size: larger;
+            padding: 2px;
+            border-radius: 1rem;
+        }
+        button:hover{
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Registration</h1>
+    <form action="/" method="post">
+
+        <label for="userName">User Name:</label>
+        <input type="text" name="userName" id="userName" placeholder="My Name" required> <br>
+        
+        <label for="email">Email-Id:</label>
+        <input type="email" name="email" placeholder="myabc@gmail.com" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="********" required><br>
+        <div>
+        <input type="checkbox">
+        <label for="">Keep Me sigin for 30-days</label>
+        </div><br>
+        <button type="submit" value="submit">Submit</button>
+
+    </form>
+</body>
+</html>
