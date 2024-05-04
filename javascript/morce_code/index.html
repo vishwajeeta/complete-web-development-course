@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morce_code</title>
+    <style>
+        *{
+            margin: auto;
+            border-radius: 7px;
+        }
+        #outputData{
+            width: 70%;
+            border: 1px solid;
+            height: 15rem;
+            
+        }
+        #inputData{
+            width: 70%;
+            border: 1px solid;
+            height: 15rem;
+            display: flex;
+        }
+        #inputData,#outputData{padding: 5px;}
+        button{
+            display: flex;
+            width: 7rem;
+            height: 2rem;
+            align-items: center;
+            justify-content: center;
+        }
+        button:hover{
+            background-color: aliceblue;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="inputData" required></textarea><br>
+    <button onclick="processExecuting()">Run</button>
+    <br>
+    <div id="outputData" ></div>
+</body>
+<script>
+    function processExecuting(){
+        data=document.getElementById("inputData").value
+        
+        data1=document.getElementById("outputData").textContent=data
+    }
+</script>
+</html>
