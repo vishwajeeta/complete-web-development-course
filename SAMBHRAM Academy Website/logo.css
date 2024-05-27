@@ -1,0 +1,14 @@
+
+#logos>h1{
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: black;
+    font-size: 2.5rem;
+}
+
+#logos>strong{
+    font: 1em sans-serif;
+    font-weight: bolder;
+    font-size: 0.8rem;   
+}

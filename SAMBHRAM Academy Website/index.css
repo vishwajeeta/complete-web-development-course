@@ -1,4 +1,7 @@
-
+body{   
+    background-size: cover;
+    background-image: url("./icon/hero.jpeg");
+}
 #navigation{
     display: flex;
     justify-content: center;
@@ -29,4 +32,21 @@ a:hover{
     background-color: #f1fafb;
     border: #7ea6f4 solid 2.5px ;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+img{
+    width: 15rem;
+}
+/* we can remove this two sets as it's already there in logo.css and can import in index.html */
+#logos>h1{
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: black;
+    font-size: 2.5rem;
+}
+
+#logos>strong{
+    font: 1em sans-serif;
+    font-weight: bolder;
+    font-size: 0.8rem;   
 }
