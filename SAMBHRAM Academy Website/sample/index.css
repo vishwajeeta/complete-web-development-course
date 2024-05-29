@@ -1,0 +1,52 @@
+body{   
+    background-size: cover;
+    background-image: url("../icon/hero1.jpeg");
+}
+#navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px #161c91 solid ;
+    border-radius: 60px;
+    box-sizing: border-box;
+    width: fit-content;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding:0 3px 0 3px ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+transition: 0.3s;
+}
+a{
+    cursor: pointer;
+    margin: 7px;
+    padding: 5px;
+    border: transparent solid 2.5px ;
+    border-radius: 15px;
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: #161c91;
+    background-color: #f1fafb;
+    border: #7ea6f4 solid 2.5px ;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+img{
+    width: 15rem;
+}
+/* we can remove this two sets as it's already there in logo.css and can import in index.html */
+#logos>h1{
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: underline;
+    text-decoration-color: black;
+    font-size: 2.5rem;
+}
+
+#logos>strong{
+    font: 1em sans-serif;
+    font-weight: bolder;
+    font-size: 0.8rem;   
+}
