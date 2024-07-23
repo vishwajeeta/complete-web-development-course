@@ -40,4 +40,20 @@ let obj1={
 //operation on objects with spread operator
 let obj2={...obj1,P_language:"python"} //it will take all the things ,but overwrite P_language
 console.log(obj2)
+
+
+
 //desctructuring
+
+let object1={
+    name1:"vishwa",
+    class1:"8a",
+    P_language:"javascript"
+}
+let {name1,class1,P_language}=object1;
+console.log("desctructuring=",{name1})
+
+let hii={name:"sample1"}
+c=hii.name
+console.log(c)
+console.log({c})
