@@ -1,3 +1,4 @@
+//spread operator practice
 let a=[5,10,7]
 let b=[...a,...a,...a]
 let c=[a,a,a]
@@ -11,3 +12,12 @@ function print(a,c,b)
 }
 let d=print(...a)
 console.log(d)
+
+let wxy={
+    name:"omg",
+    address:"earth",
+    galexy:"milkey way"
+}
+console.log(wxy)
+let xyz={...wxy,galexy:null}
+console.log(xyz)
