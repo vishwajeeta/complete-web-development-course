@@ -64,11 +64,22 @@
       <input type="checkbox" id="public" /><label for="public">public</label>
     </div>
     <div >
-      <input type="checkbox" id="protection" /><label for="protection"
-        >Add-password</label
+      <label for="protection"  
+        ><input type="checkbox" id="protection" name="protect1" onclick="protect()" />Add-password</label
       >
+      <span id="checkedpassword"></span>
     </div>
     <input type="submit" value="submit" id="submit"/>
     </form>
   </body>
+  <script>
+    const protect =()=>{
+      if(document.getElementById('protection').checked)
+      document.getElementById("checkedpassword").innerHTML='<br><input type="password" placeholder="Enter password">'
+      
+      else
+        document.getElementById("checkedpassword").innerHTML=''
+      
+    }
+  </script>
 </html>
