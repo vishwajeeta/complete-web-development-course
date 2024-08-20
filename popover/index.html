@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pop over</title>
+    <title>Pop-over</title>
     <style>
         *{
             font-family: sans-serif;
@@ -32,6 +32,13 @@
             color: aliceblue;
             background-color:rgb(163, 94, 227);
         }
+        #close{
+            float: right;
+            cursor: pointer;
+             border: none;
+              background-color:rgb(161, 249, 249);
+              font-size: large;
+        }
     /* it do work but doesn't look professional */
         [popover]{
             animation: fadeIn 0.2s ease-in;
@@ -48,7 +55,7 @@
 </head>
 <body>
     <div id="clicked" popover >
-        <button popovertarget="clicked" popovertargetaction="hide" style="float: right;cursor: pointer; border: none; background-color:rgb(161, 249, 249);font-size: large;" title="close">&#9747</button><br>
+        <button popovertarget="clicked" popovertargetaction="hide" id="close" title="close">&#9747</button><br>
         <h1>Welcome to My Page</h1>
     </div>
     <button popovertarget="clicked" style="margin-top: 3rem;" id="button" >Click me!</button>
