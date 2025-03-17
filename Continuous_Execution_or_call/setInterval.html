@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-Date</title>
+</head>
+<body>
+    <h1 id="date">loading...</h1>
+</body>
+<script>
+    // clearInterval(()=>{},[])
+    setInterval(()=>{
+        let date= new Date
+        let final_day
+        Todaydate=date.getDate()+"-"+date.getMonth()+"-"+date.getFullYear()
+        TodayTime=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
+        
+        Todayday=date.getUTCDay()
+        switch(Todayday){
+            case 1:final_day="Monday"
+            break;
+            case 2:final_day="Tuesday"
+            break;
+            case 3:final_day="Wednesday"
+            break;
+            case 4: final_day="Thursday"
+            break;
+            case 5:final_day="Friday"
+            break;
+            case 6:final_day="Saturday"
+            break;
+            case 7:final_day="Sunday"
+            break;
+            default:final_day=Todayday;
+        }
+        document.getElementById("date").innerHTML=`Date= ${Todaydate} </br> Day= ${final_day} <br> Time= ${TodayTime}`
+        // console.log(date)
+        // console.log("Hii")
+        // console.log(date.getDate())
+        // console.log("")
+    },1000)
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time-out-color-change</title>
+    <style>
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 700px;
+        }
+        h1{
+            font-size: 1000%;
+        }
+    </style>
+  </head>
+  <body bgcolor="yellow"><div><h1 id="count">5</h1></div></body>
+  <script>
+    let countDown=4
+    const time=setInterval(()=>{
+        document.getElementById("count").innerHTML=countDown
+        countDown--;
+    },1000)
+    const stop=()=>{
+        clearInterval(time);
+    }
+
+    setTimeout(() => {
+      document.body.style = "background-color:blue;color:white;";
+      stop()
+    }, 5000);
+  </script>
+</html>
