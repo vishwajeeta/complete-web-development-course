@@ -14,3 +14,7 @@ console.log({c})
 // sample1
 // { c: 'sample1' }
 ```
+## check node version
+```
+node --version
+```
