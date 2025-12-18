@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 Security – Bug & Fix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg"></div>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="line"></span>
+    <h1>Web3 Security Researcher:</h1>
+    <span class="line"></span>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="profile">
+    <img src="profile.jpeg" alt="profile"/>
+    <div class="profile-text">
+      <h2>Michael Kelling <span>· 1st</span></h2>
+      <p>Solidity Smart Contract Developer | Wasder</p>
+    </div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="quote-box">
+    <p>
+      For the <b>collectFee</b> of the owner function, we can simply check for ≥0,
+      and transfer only the user’s balance to the caller, rather than having
+      <code>address(this).balance</code>.
+    </p>
+  </div>
+
+  <!-- ARROW -->
+  <div class="arrow down"></div>
+
+  <!-- BUG -->
+  <div class="badge bug">✖ BUG</div>
+
+  <div class="code-card bug-card">
+    <div class="code-header">Vault.sol</div>
+    <pre>
+<span class="line-bad">if (payment[msg.sender] &lt;= 0)</span>
+    revert "insufficient balance";
+
+<span class="line-bad">payable(msg.sender).transfer(address(this).balance);</span>
+// allows draining all funds
+    </pre>
+  </div>
+
+  <div class="arrow down red"></div>
+
+  <!-- FIX -->
+  <div class="badge fix">✔ FIX</div>
+
+  <div class="code-card fix-card">
+    <div class="code-header">Vault.sol</div>
+    <pre>
+uint256 amount = payment[msg.sender];
+if (amount == 0) revert InsufficientBalance();
+
+<span class="line-good">payment[msg.sender] = 0;</span>
+
+(bool success,) =
+<span class="line-good">payable(msg.sender).call{value: amount}("");</span>
+if (!success) revert TransferFailed();
+    </pre>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    🔐 FIX: Final tool of secure-city issues suggested
+  </div>
+
+</div>
+
+</body>
+</html>
