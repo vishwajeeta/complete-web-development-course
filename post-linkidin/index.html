@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 Security Bug & Fix</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+
+  <h1 class="title">Web3 Security Researcher:</h1>
+
+  <!-- Profile Card -->
+  <div class="profile-card">
+    <img src="profile.jpg" alt="Profile" />
+    <div>
+      <h2>Michael Kelling <span>· 1st</span></h2>
+      <p>Solidity Smart Contract Developer | Wasder</p>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <div class="quote">
+    For the collectFee of the owner function, we can simply check for ≥0,
+    and transfer only the user’s balance to the caller, rather than having
+    <code>address(this).balance</code>.
+  </div>
+
+  <!-- Bug Section -->
+  <div class="label bug">✖ BUG</div>
+
+  <div class="code-card">
+    <span class="filename">Vault.sol</span>
+    <pre><code>
+if (payment[msg.sender] <= 0)
+    revert "insufficient balance";
+
+payable(msg.sender).transfer(address(this).balance);
+// allows draining all funds
+    </code></pre>
+  </div>
+
+  <!-- Fix Section -->
+  <div class="label fix">✔ FIX</div>
+
+  <div class="code-card">
+    <span class="filename">Vault.sol</span>
+    <pre><code>
+uint256 amount = payment[msg.sender];
+if (amount == 0) revert InsufficientBalance();
+
+payment[msg.sender] = 0;
+
+(bool success, ) =
+  payable(msg.sender).call{value: amount}("");
+if (!success) revert TransferFailed();
+    </code></pre>
+  </div>
+
+  <div class="footer">
+    🛡️ FIX: Final tool of secure-city issues suggested
+  </div>
+
+</div>
+
+</body>
+</html>
