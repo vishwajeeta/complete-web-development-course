@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web3 Security Bug & Fix</title>
+
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-solidity.min.js"></script>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,7 +20,7 @@
 
   <!-- Profile Card -->
   <div class="profile-card">
-    <img src="profile.jpg" alt="Profile" />
+    <img src="profile.jpeg" alt="Profile" />
     <div>
       <h2>Michael Kelling <span>· 1st</span></h2>
       <p>Solidity Smart Contract Developer | Wasder</p>
@@ -33,7 +39,7 @@
 
   <div class="code-card">
     <span class="filename">Vault.sol</span>
-    <pre><code>
+    <pre style=" background: #0d1117;"><code class="language-solidity">
 if (payment[msg.sender] <= 0)
     revert "insufficient balance";
 
@@ -47,7 +53,7 @@ payable(msg.sender).transfer(address(this).balance);
 
   <div class="code-card">
     <span class="filename">Vault.sol</span>
-    <pre><code>
+    <pre style=" background: #0d1117;"><code class="language-solidity">
 uint256 amount = payment[msg.sender];
 if (amount == 0) revert InsufficientBalance();
 
