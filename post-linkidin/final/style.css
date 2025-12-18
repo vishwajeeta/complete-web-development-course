@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1a1f2b, #0d1117);
+  color: #eaeaea;
+  padding: 40px;
+}
+
+.container {
+  max-width: 820px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  color: #f5c77a;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+/* Profile */
+.profile-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: #161b22;
+  padding: 16px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+.profile-card img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.profile-card h2 {
+  font-size: 16px;
+}
+
+.profile-card span {
+  color: #999;
+}
+
+.profile-card p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* Quote */
+.quote {
+  background: linear-gradient(135deg, #2b313c, #1a1f2b);
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Labels */
+.label {
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 10px;
+  margin: 18px auto;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.bug {
+  background: #3a1c1c;
+  color: #ff6b6b;
+}
+
+.fix {
+  background: #1c3a28;
+  color: #6bff9f;
+}
+
+/* Code */
+.code-card {
+  background: #0d1117;
+  border-radius: 14px;
+  padding: 5px;
+  margin-bottom: 30px;
+  position: relative;
+  border: 1px solid #222;
+}
+
+.filename {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #111;
+  padding: 4px 10px;
+  font-size: 12px;
+  border-radius: 8px;
+  color: #aaa;
+}
+
+pre {
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f5f5f5;
+  white-space: pre-wrap;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 12px;
+  background: #161b22;
+  border-radius: 12px;
+  color: #f5c77a;
+}
+
+/* BACKGROUND DEPTH */
+.bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, #1a2230 0%, #0b0f14 55%),
+    radial-gradient(circle at bottom, #121822, #0b0f14);
+  z-index: -1;
+}
+.wrap {
+  max-width: 860px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #f0c27b;
+  letter-spacing: 0.6px;
+}
+
+.line {
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #f0c27b, transparent);
+}
