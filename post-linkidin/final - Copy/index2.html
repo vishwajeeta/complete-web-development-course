@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 Security Bug & Fix</title>
+
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-solidity.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+
+<div class="bg"></div>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="line"></span>
+    <h1>Web3 Security Researcher:</h1>
+    <span class="line"></span>
+  </div>
+
+  <!-- Profile Card -->
+  <div class="profile-card">
+    <img src="https://media.licdn.com/dms/image/v2/D4D03AQH4HVm8o3VgAQ/profile-displayphoto-scale_400_400/B4DZizudjAHYAg-/0/1755361959479?e=2147483647&v=beta&t=02RLtnjIiboOS7C94bQov77r5VpWC76oXys8p3lYYbE" alt="Profile" />
+    <div>
+      <!-- <h2>Yahaya BabsAudits <span>· 1st</span></h2> -->
+      <h2>Rosario Borgesi </h2>
+      <p>Blockchain Engineer</p>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <div class="quote">
+ collectFee & reentrancy: Transfer the owner’s balance (not contract balance) and update it first using the CEI pattern.
+<br/>
+Safety & simplification: Replace all transfer with call and avoid unnecessary uint256 < 0 checks.
+  </div>
+
+  <!-- Bug Section -->
+  <div class="label bug">✖ BUG</div>
+
+  <div class="code-card">
+    <span class="filename">Vault.sol</span>
+    <pre style=" background: #0d1117;font-size: 18px;"><code class="language-solidity">
+  function withdraw(uint value) external {
+    if (payment[msg.sender] <= value) revert("insufficient balance");
+        //  ✖ BUG-2
+        payable(msg.sender).transfer(value);
+  }
+  
+  function collectFee() external onlyOwner {
+        if (payment[msg.sender] <= 0) revert("insufficient balance");
+        //  ✖ BUG-1,2
+        payable(msg.sender).transfer(address(this).balance);
+    }
+    </code></pre>
+  </div>
+
+  <!-- Fix Section -->
+  <div class="label fix">✔ FIX</div>
+
+  <div class="code-card">
+    <span class="filename">Vault.sol</span>
+    <pre style=" background: #0d1117;font-size: 18px;"><code class="language-solidity">
+  function withdraw(uint value) external nonReentrant {
+        //  ✔ FIX-2
+        (bool success, ) = payable(msg.sender).call{value: value}("");
+        if (!success) revert TransferFailed();
+  }
+
+  function collectFee() external onlyOwner {
+        uint256 amount = payment[msg.sender];
+        if (amount == 0) revert insufficientBalance();
+        //  ✔ FIX-1,2
+        payment[msg.sender] = 0;
+        (bool success, ) = payable(msg.sender).call{value: amount}("");
+        if (!success) revert TransferFailed();
+        emit feeCollected(amount, msg.sender);
+  }
+    </code></pre>
+  </div>
+
+  <div class="footer">
+    🛡️ FIX: Selected key fixes from several important suggestions
+  </div>
+
+</div>
+</div>
+</body>
+</html>
