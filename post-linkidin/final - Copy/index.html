@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 Security Bug & Fix</title>
+
+  <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-solidity.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+
+<div class="bg"></div>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="line"></span>
+    <h1>Web3 Security Researcher:</h1>
+    <span class="line"></span>
+  </div>
+
+  <!-- Profile Card -->
+  <div class="profile-card">
+    <img src="https://media.licdn.com/dms/image/v2/D4D03AQF5yl4n6AYohA/profile-displayphoto-shrink_400_400/B4DZdBbfHBG8Ag-/0/1749149414564?e=2147483647&v=beta&t=CFowM1mUxqUlKJC0zQIAWzhiJrLSY7t2dKIFpHDlFFM" alt="Profile" />
+    <div>
+      <h2>Michealking _BuildsWithKing <span>· 1st</span></h2>
+      <p>Solidity Smart Contract Developer | Web3 ...</p>
+    </div>
+  </div>
+
+  <!-- Quote -->
+  <div class="quote">
+   1. Withdraw function fix: Corrected the conditional from if(payment[msg.sender] <= value) to if(value > payment[msg.sender]) and added nonReentrant to prevent over-withdrawal and reentrancy attacks.
+   <br/><br/>
+   2. CollectFee function fix: Changed the check from if(payment[msg.sender] <= 0) to if(amount == 0) to properly revert when there’s nothing to collect.
+  </div>
+
+  <!-- Bug Section -->
+  <div class="label bug">✖ BUG</div>
+
+  <div class="code-card">
+    <span class="filename">Vault.sol</span>
+    <pre style=" background: #0d1117;font-size: 18px;"><code class="language-solidity">
+  function withdraw(uint value) external {
+        //  ✖ BUG-1
+        if (payment[msg.sender] <= value) revert("insufficient balance");
+        .
+        .
+        payable(msg.sender).transfer(value);
+  }
+  
+  function collectFee() external onlyOwner {
+        //  ✖ BUG-2
+        if (payment[msg.sender] <= 0) revert("insufficient balance");
+        payable(msg.sender).transfer(address(this).balance);
+  }
+    </code></pre>
+  </div>
+
+  <!-- Fix Section -->
+  <div class="label fix">✔ FIX</div>
+
+  <div class="code-card">
+    <span class="filename">Vault.sol</span>
+    <pre style=" background: #0d1117;font-size: 18px;"><code class="language-solidity">
+  function withdraw(uint value) external nonReentrant {
+        //  ✔ FIX-1
+        if (value > payment[msg.sender]) revert insufficientBalance();
+        .
+        .
+        emit withdrawn(value, collect, msg.sender);
+  }
+
+  function collectFee() external onlyOwner {
+        uint256 amount = payment[msg.sender];
+        //  ✔ FIX-2
+        if (amount == 0) revert insufficientBalance();
+        .
+        .
+        emit feeCollected(amount, msg.sender);
+  }
+    </code></pre>
+  </div>
+
+  <div class="footer">
+    🛡️ FIX: Selected key fixes from several important suggestions
+  </div>
+
+</div>
+</div>
+</body>
+</html>
